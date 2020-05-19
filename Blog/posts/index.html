@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<title>jQuery Textifyed: Editable Content Demo</title>
+<style>
+body { background-color:#E67E22; font-family:'Open Sans';}
+.container { margin:150px auto; max-width:768px;}
+div.notesContainerDiv {
+    padding: 2px;
+    position:relative;
+    min-height:10px;
+    line-height: 20px;
+}
+
+div.notesContainerDiv:hover {
+    background-color: #FFFFE1;
+    cursor: pointer;
+}
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 5px;
+    color: #ffffff;
+    padding: 8px 14px;
+}
+
+.btnDone {
+    
+    background: -moz-linear-gradient(
+        top,
+        #318a2c 0%,
+        #1f4d22);
+    background: -webkit-gradient(
+        linear, left top, left bottom,
+        from(#318a2c),
+        to(#1f4d22));
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 0px solid #faf5f8;
+    -moz-box-shadow:
+        1px 2px 3px rgba(000,000,000,0.4),
+        inset 0px 0px 0px rgba(255,255,255,0.7);
+    -webkit-box-shadow:
+        1px 2px 3px rgba(000,000,000,0.4),
+        inset 0px 0px 0px rgba(255,255,255,0.7);
+    box-shadow:
+        1px 2px 3px rgba(000,000,000,0.4),
+        inset 0px 0px 0px rgba(255,255,255,0.7);
+    text-shadow:
+        0px -1px 0px rgba(000,000,000,0.4),
+        0px 1px 0px rgba(255,255,255,0.3);
+}
+
+.btnCancel {
+    background: -moz-linear-gradient(
+        top,
+        #ed3d3d 0%,
+        #993232);
+    background: -webkit-gradient(
+        linear, left top, left bottom,
+        from(#ed3d3d),
+        to(#993232));
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 0px solid #faf5f8;
+    -moz-box-shadow:
+        1px 2px 3px rgba(000,000,000,0.4),
+        inset 0px 0px 0px rgba(255,255,255,0.7);
+    -webkit-box-shadow:
+        1px 2px 3px rgba(000,000,000,0.4),
+        inset 0px 0px 0px rgba(255,255,255,0.7);
+    box-shadow:
+        1px 2px 3px rgba(000,000,000,0.4),
+        inset 0px 0px 0px rgba(255,255,255,0.7);
+    text-shadow:
+        0px -1px 0px rgba(000,000,000,0.4),
+        0px 1px 0px rgba(255,255,255,0.3);
+}
+</style>
+</head>
+
+<body>
+<div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="https://www.jqueryscript.net/text/Editable-Element-Tinymce-Support-jQuery-Textifyed.html">Download This Plugin</a></li>
+<li><a href="https://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+<div class="container">
+<h1>jQuery Textifyed: Editable Content Demo</h1>
+<div class="notesContainerDiv muted">
+                Click to add text....
+  </div>
+<textarea class="input-xxlarge" id="txtDescription"></textarea><br>
+
+            <a href="#" class="btn btnDone btn-danger">Done</a>
+            <a href="#" class="btn btnCancel btn-primary" >Cancel</a>
+
+</div>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.7.5/tinymce.min.js"></script>
+
+<script src="js/textifyed.js"></script>
+<script>
+var Editor = function (el) {
+            var options = {
+                selector: '#' + el.attr('id'),
+                theme: 'modern',
+                paste_as_text: true,
+				branding: false,
+                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+                setup: function (ed) {
+                    ed.on('init', function () {
+                        el.trigger('custom:init');
+                    });
+                }
+            };
+
+            try {
+                window.tinymce.init(options);
+            } catch (e) {
+                window.alert(e.message);
+            }
+        };
+        $('textarea#txtDescription').textifyed({text: '', div: '.notesContainerDiv', Editor: Editor, placeholder: 'Click here to try...'});
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>
